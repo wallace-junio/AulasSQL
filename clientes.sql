@@ -198,29 +198,22 @@ select distinct sexo from clientes;
 
 ----------------------------------------------------------------------
 
+-------------------------------------------------------------------------------------------------
+---Traz uma LISTA com os CLIENTES indicados nos parâmetros ----
+select * from clientes where nome in ('Bianca  Gabriela','Aquiles  José')
 
+--------------------------------------------------------------------------------------------------
 
+---Traz o cliente que possui o MAIOR salário --- [SUBCONSULTAS]
+select nome, 'R$ '|| salario  from clientes where salario = (select max(salario) from clientes);
+select nome, 'R$ '|| salario  from clientes where salario in (select max(salario) from clientes); 
 
+--------------------------------------------------------------------------------------------------
+---Traz o cliente que possui o MAIOR e MENOR  salário --- [SUBCONSULTAS]
+select nome, 'R$ '|| salario  from clientes where salario IN ((select max(salario) from clientes),(select min(salario) from clientes));
 
+---Opção 2---
+select nome, 'R$ '|| salario  from clientes where salario IN (select MAX(salario) from clientes)
+											   or salario IN (select MIN(salario) from clientes);	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------------------------------------------------------------------------
