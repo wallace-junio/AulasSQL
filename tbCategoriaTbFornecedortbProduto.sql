@@ -56,3 +56,26 @@ insert into produto(nome,valorVenda,QtdeEstoque,FK_Cod_Cat,FK_Cod_Forn) values('
 insert into produto(nome,valorVenda,QtdeEstoque,FK_Cod_Cat,FK_Cod_Forn) values('Palmito da Floresta',7.55,7,2,57);
 insert into produto(nome,valorVenda,QtdeEstoque,FK_Cod_Cat,FK_Cod_Forn) values('Bolo de Fubá',5.70,8,3,null);
 insert into produto(nome,valorVenda,QtdeEstoque,FK_Cod_Cat,FK_Cod_Forn) values('Refrigerante',2.99,32,1,53);
+
+
+select DISTINCT ATRIBUTOS_DE_RETORNO from TABELA
+inner join TABELA on CRITERIOS_DE_RELAÇAO
+where CONDICOES
+having CONDICOES_DE_FUNCOES_DE_AGREGACAO
+group by ATRIBUTOS
+order by ATRIBUTOS
+order by ATRIBUTOS asc desc
+
+
+------------------------------------------------------------------------------------
+--- opçao 1-PRODUTO CARTESIANO where  (Teoria dos conjuntos)*Produto de 02 tabelas 
+select p.nome,c.nome from produto p, categoria c
+----Produto cartesiano condicionado ao where p.fk_cod_cat =c.cod
+select p.nome,c.nome from produto p, categoria c where p.fk_cod_cat =c.cod ;
+----- 03 tabelas
+select p.nome, c.nome, f.nome from produto p, categoria c, fornecedor f 
+where p.fk_cod_cat=c.cod and p.fk_cod_forn=f.cod
+
+------------------------------------------------------------------------------------
+
+
